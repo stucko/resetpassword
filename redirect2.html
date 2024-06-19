@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        // Function to extract the token from the URL query string
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // Extract the token
+        var token = getParameterByName('token');
+
+        // Construct the deep link URL with the token
+        var deepLinkUrl = 'postknight2://prismpass?token=' + token;
+
+        // Redirect to the deep link URL or provide a clickable link
+        window.onload = function() {
+            // Option 1: Automatically attempt to redirect (might not work in all browsers/platforms)
+            window.location.href = deepLinkUrl;
+
+            // Option 2: Update the clickable link with the deep link URL
+            document.getElementById('deepLink').href = deepLinkUrl;
+        }
+    </script>
+</head>
+<body>
+    <p>If you are not redirected, <a id="deepLink" href="postknight2://prismpass">click here</a>.</p>
+</body>
+</html>
