@@ -21,6 +21,8 @@
 
         // Function to display the token on the page for testing
         function autoRedirect() {
+            var deepLinkElement = document.getElementById('deepLink');
+deepLinkElement.href = deepLinkUrl;
             window.location.href = deepLinkUrl;
         }
 
