@@ -20,19 +20,17 @@
         var deepLinkUrl = 'postknight2://resetpassword?token=' + token;
 
         // Function to display the token on the page for testing
-        function displayToken() {
-            document.getElementById('tokenDisplay').textContent = 'Token: ' + token;
-            document.getElementById('deepLink').href = deepLinkUrl;
+        function autoRedirect() {
+            window.location.href = deepLinkUrl;
         }
 
         // Call displayToken on window load
         window.onload = function() {
-            displayToken();
+            autoRedirect();
         }
     </script>
 </head>
 <body>
-    <p id="tokenDisplay">Token: </p>
     <p>If you are not redirected, <a id="deepLink" href=deepLinkUrl>click here</a>.</p>
 </body>
 </html>
